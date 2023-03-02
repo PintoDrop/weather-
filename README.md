@@ -34,11 +34,11 @@ GIVEN a weather dashboard with form inputs
 
 ## Repository Link
 
-[Github](https://github.com/PintoDrop/Work-Day)
+[Github](https://github.com/PintoDrop/weather-)
 
 ## Website Link
 
-[Weather Tracking](https://github.com/PintoDrop/weather-)
+[Weather Tracking]()
 
 ## Screen Shots
 
