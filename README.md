@@ -2,11 +2,15 @@
 
 ## Description
 
+For this assignment I was tasked with creating a weather application that allows the user to search by city to check the weather.
+
 ## Installation
 
 N/A
 
 ## Usage
+
+This application allows the user to enter in the city they desire and check the weather for that location.
 
 ## Credits
 
