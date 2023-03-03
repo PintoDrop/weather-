@@ -10,6 +10,3 @@
 //   });
 
 
-// weather API Key: e89986efe36f78ede4b3bc4f08baa878
-
-// url:"https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={e89986efe36f78ede4b3bc4f08baa878}";
