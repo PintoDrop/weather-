@@ -1,0 +1,20 @@
+h1 {
+  text-align: center;
+  font-family:'Courier New', Courier, monospace;
+  color: darkblue;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 3px;
+  padding: 1px;
+  color: blue;
+}
+
+button {
+  padding: 1px;
+}
+
+body {
+  background-color: gray;
+}
