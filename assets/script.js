@@ -6,25 +6,37 @@ $(document).ready(function () {
     fetch(url_coordinate)
       .then((res) => res.json())
       .then((data) => {
+        // let lat = res.data.city.coord.lat
         console.log(data[0].lon);
         console.log(data[0].lat);
         // call fetch on the other api
         // retrieve the needed data (wind, weather, temp, huimidty, image)
-
       });
-  }
-
-  // //search button feature
-  $("#search-button").on("click", function () {
-    //get value in input search-value.
+    }
+    
+    
+    // fetch(url_weather)
+    //     .then((res) => res.json())
+    //     .then((data) => {
+      //   console.log('city name: ');
+      
+      // //search button feature
+    $("#search-button").on("click", function () {
+        //get value in input search-value.
     var searchTerm = $("#search-value").val();
+    console.log(searchTerm);
     //empty input field.
     $("#search-value").val("");
-    alert(searchTerm);
+    // alert(searchTerm);
     weatherFunction(searchTerm);
     // weatherForecast(searchTerm);
   });
 });
+
+// document.getElementById('search-button').addEventListener("click", event => {
+//   let searchValue = document.getElementById('searchValue').value
+//   console.log(searchTerm)
+// });
 
 
 
