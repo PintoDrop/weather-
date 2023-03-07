@@ -1,20 +1,12 @@
-# Weather
+# Weather-Tracker
 
 ## Description
 
-For this assignment I was tasked with creating a weather application that allows the user to search by city to check the weather.
-
-## Installation
-
-N/A
+For this assignment I was tasked with creating a weather application that allows the user to search by city to check the weather. Using the weather API I was able to have the user enter a location they wish to see. When the user has inputted the information then they are returned with the weather for that area. With the weather information the user is able to see the temperature, wind, huimidty, and an image of that location.
 
 ## Usage
 
-This application allows the user to enter in the city they desire and check the weather for that location.
-
-## Credits
-
-N/A
+This application allows the user to enter in the city they desire and check the weather for that location. After the user enters their location they are able to see the current weather for where they are. They can also see what the next five days looks like for that location.
 
 ## License
 
