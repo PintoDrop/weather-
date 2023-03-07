@@ -1,10 +1,9 @@
+
 $(document).ready(function () {
   var today = $("#today");
   var fiveDaySection = $("#fiveDay");
 
-
   function weatherFunction(searchTerm) {
-
     // https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
 
     //api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
@@ -25,13 +24,13 @@ $(document).ready(function () {
         console.log(data[0].lon);
         console.log(data[0].lat);
 
-      fetch(url_weather1)
-        .then((res)=>res.json())
-        .then((data)=>{
-          console.log(data)
-          renderToday(data);
-        })
-        
+        fetch(url_weather1)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            renderToday(data);
+          });
+
         // call fetch on the other api (5 day forecast)
         fetch(url_weather)
           .then((res) => res.json())
@@ -39,22 +38,17 @@ $(document).ready(function () {
             console.log(data);
             // renderToday(data);
             fiveDay(data);
-            for (var i=0; i< data.list.length; i+=5) {
-              var currentDay = data.list[i]
-              fiveDay(currentDay)
-            }
-          
+            // for (var i=0; i< data.list.length; i+=5) {
+            //   var currentDay = data.list[i]
+            // fiveDay(currentDay)
+            // }
           });
       });
   }
 
-
-  // //search button feature
   $("#search-button").on("click", function () {
-    //get value in input search-value.
     var searchTerm = $("#search-value").val();
     console.log(searchTerm);
-    //empty input field.
     $("#search-value").val("");
     // alert(searchTerm);
     weatherFunction(searchTerm);
@@ -75,10 +69,10 @@ $(document).ready(function () {
     city.text(dataObject.name);
 
     tempEl.text("Temperature: " + dataObject.main.temp + " Fahrenheit");
-    windEl.text('Wind Speed: ' + dataObject.wind.speed + ' MPH');
-    weatherEl.text('Weather: ' + dataObject.weather[0].description);
-    humidEl.text('Humidity: '+dataObject.main.humidity + " %")
-    dateEl.text('Date: ' + dayjs().format("MM/DD/YYYY"));
+    windEl.text("Wind Speed: " + dataObject.wind.speed + " MPH");
+    weatherEl.text("Weather: " + dataObject.weather[0].description);
+    humidEl.text("Humidity: " + dataObject.main.humidity + " %");
+    dateEl.text("Date: " + dayjs().format("MM/DD/YYYY"));
 
     // iconEl.text(dataObject.list[0].weather.icon);
 
@@ -95,27 +89,41 @@ $(document).ready(function () {
     var weatherEl = $("<p>");
     var humidEl = $("<p>");
     var iconEl = $("<img>");
+
+    var startDt = dayjs().add(1, "day").startOf("day").unix();
+    var endDt = dayjs().add(6, "day").startOf("day").unix();
     // change index'
     var iconUrl = `https://openweathermap.org/img/w/${dataObject.list[1].weather[0].icon}.png`;
     iconEl.attr("src", iconUrl);
 
     // tempEl.text(dataObject.list[0].main.temp)
-      tempEl.text("Temperature: " + dataObject.list[1].main.temp + " Fahrenheit");
-       windEl.text("Wind Speed: " + dataObject.list[1].wind.speed + ' MPH');
-       weatherEl.text("Weather: " + dataObject.list[1].weather[0].description);
-       humidEl.text("Humidity: " + dataObject.list[1].main.humidity + " %");
-       dateEl.text("Date: " + dataObject.list[1].dt_txt + "pm");
+    tempEl.text("Temperature: " + dataObject.list[1].main.temp + " Fahrenheit");
+    windEl.text("Wind Speed: " + dataObject.list[1].wind.speed + " MPH");
+    weatherEl.text("Weather: " + dataObject.list[1].weather[0].description);
+    humidEl.text("Humidity: " + dataObject.list[1].main.humidity + " %");
+    dateEl.text("Date: " + dataObject.list[1].dt_txt + "pm");
 
-      //  for (var i = 0; i < data.list.length; i += 5) {
-      //    var renderToday = data[i];
-      //    fiveDay(currentDay);
-      //  }
+    for (var i = 0; i < dataObject.length; i++) {
+      if (dataObject[i].dt >= startDt && dataObject[i].dt < endDt) {
+        if (dataObject[i].dt_txt.slice(11, 13) == "12") {
+          fiveDay(dataObject[i]);
+        }
+      }
+    }
 
     city.text(dataObject.city.name);
-    fiveDaySection.append(city, dateEl,iconEl,tempEl,windEl,weatherEl,humidEl);
+    fiveDaySection.append(
+      city,
+      dateEl,
+      iconEl,
+      tempEl,
+      windEl,
+      weatherEl,
+      humidEl
+    );
+    // fiveDay();
   }
 });
-
 
 // img/icon url:https://openweathermap.org/img/w/${forecast.weather[0].icon}.png
 
