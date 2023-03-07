@@ -59,10 +59,10 @@ $(document).ready(function () {
 
   function renderToday(dataObject) {
     var dateEl = $("<p>");
-    var tempEl = $("<p>");
-    var windEl = $("<p>");
-    var weatherEl = $("<p>");
-    var humidEl = $("<p>");
+    var tempEl = $("<li>");
+    var windEl = $("<li>");
+    var weatherEl = $("<li>");
+    var humidEl = $("<li>");
     var iconEl = $("<img>");
     var city = $("<h1>");
     var iconUrl = `https://openweathermap.org/img/w/${dataObject.weather[0].icon}.png`;
@@ -86,12 +86,13 @@ $(document).ready(function () {
     // console.log(dataObject);
     var dateEl = $("<p>");
     var city = $("<h1>");
-    var date = $("<h2>");
-    var tempEl = $("<p>");
-    var windEl = $("<p>");
-    var weatherEl = $("<p>");
-    var humidEl = $("<p>");
+    // var date = $("<h2>");
+    var tempEl = $("<li>");
+    var windEl = $("<li>");
+    var weatherEl = $("<li>");
+    var humidEl = $("<li>");
     var iconEl = $("<img>");
+
     var dateEl1 = $("<p>");
     var humidEl1 = $("<p>");
 
@@ -101,14 +102,7 @@ $(document).ready(function () {
     // change index'
     var iconUrl = `https://openweathermap.org/img/w/${dataObject.list[1].weather[0].icon}.png`;
     iconEl.attr("src", iconUrl);
-
-    // tempEl.text(dataObject.list[0].main.temp)
-    tempEl.text("Temperature: " + dataObject.list[6].main.temp + " Fahrenheit");
-    windEl.text("Wind Speed: " + dataObject.list[6].wind.speed + " MPH");
-    weatherEl.text("Weather: " + dataObject.list[6].weather[0].description);
-    humidEl.text("Humidity: " + dataObject.list[6].main.humidity + " %");
-    dateEl.text("Date: " + dataObject.list[6].dt_txt + "pm");
-
+    
     for (var i = 0; i < dataObject.list.length; i++) {
       if (
         dataObject.list[i].dt >= startDate &&
@@ -117,6 +111,16 @@ $(document).ready(function () {
         if (dataObject.list[i].dt_txt.slice(11, 13) == "12") {
           // fiveDay(dataObject[i]);
           console.log(dataObject.list[i]);
+    // tempEl.text(dataObject.list[0].main.temp)
+
+    tempEl.text("Temperature: " + dataObject.list[i].main.temp + " Fahrenheit");
+    windEl.text("Wind Speed: " + dataObject.list[i].wind.speed + " MPH");
+    weatherEl.text("Weather: " + dataObject.list[i].weather[0].description);
+    humidEl.text("Humidity: " + dataObject.list[i].main.humidity + " %");
+    dateEl.text("Date: " + dataObject.list[i].dt_txt + "pm");
+
+    
+
 
           // tempEl.text(
           //   "Temperature: " + dataObject.list[6].main.temp + " Fahrenheit"
@@ -126,7 +130,7 @@ $(document).ready(function () {
           //   "Weather: " + dataObject.list[6].weather[0].description
           // );
           // humidEl1.text("Humidity: " + dataObject.list[i].main.humidity + " %");
-          // dateEl1.text("Date: " + dataObject.dt_txt + "pm");
+          // dateEl1.text("Date: " + dataObject[i].dt_txt + "pm");
         }
       }
     }
