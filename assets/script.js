@@ -1,5 +1,5 @@
-var startDt = dayjs().add(1, "day").startOf("day").unix();
-var endDt = dayjs().add(6, "day").startOf("day").unix();
+// var startDt = dayjs().add(1, "day").startOf("day").unix();
+// var endDt = dayjs().add(6, "day").startOf("day").unix();
 
 $(document).ready(function () {
   var today = $("#today");
@@ -83,6 +83,7 @@ $(document).ready(function () {
   }
 
   function fiveDay(dataObject) {
+    // console.log(dataObject);
     var dateEl = $("<p>");
     var city = $("<h1>");
     var date = $("<h2>");
@@ -91,9 +92,12 @@ $(document).ready(function () {
     var weatherEl = $("<p>");
     var humidEl = $("<p>");
     var iconEl = $("<img>");
+    var dateEl1 = $("<p>");
+    var humidEl1 = $("<p>");
 
-    var startDt = dayjs().add(1, "day").startOf("day").unix();
-    var endDt = dayjs().add(6, "day").startOf("day").unix();
+    var startDate = dayjs().add(1, "day").startOf("day").unix();
+    var endDate = dayjs().add(6, "day").startOf("day").unix();
+    console.log(startDate, endDate);
     // change index'
     var iconUrl = `https://openweathermap.org/img/w/${dataObject.list[1].weather[0].icon}.png`;
     iconEl.attr("src", iconUrl);
@@ -105,10 +109,24 @@ $(document).ready(function () {
     humidEl.text("Humidity: " + dataObject.list[6].main.humidity + " %");
     dateEl.text("Date: " + dataObject.list[6].dt_txt + "pm");
 
-    for (var i = 0; i < dataObject.length; i++) {
-      if (dataObject[i].dt >= startDt && dataObject[i].dt < endDt) {
-        if (dataObject[i].dt_txt.slice(11, 13) == "12") {
-          fiveDay(dataObject[i]);
+    for (var i = 0; i < dataObject.list.length; i++) {
+      if (
+        dataObject.list[i].dt >= startDate &&
+        dataObject.list[i].dt < endDate
+      ) {
+        if (dataObject.list[i].dt_txt.slice(11, 13) == "12") {
+          // fiveDay(dataObject[i]);
+          console.log(dataObject.list[i]);
+
+          // tempEl.text(
+          //   "Temperature: " + dataObject.list[6].main.temp + " Fahrenheit"
+          // );
+          // windEl.text("Wind Speed: " + dataObject.list[6].wind.speed + " MPH");
+          // weatherEl.text(
+          //   "Weather: " + dataObject.list[6].weather[0].description
+          // );
+          // humidEl1.text("Humidity: " + dataObject.list[i].main.humidity + " %");
+          // dateEl1.text("Date: " + dataObject.dt_txt + "pm");
         }
       }
     }

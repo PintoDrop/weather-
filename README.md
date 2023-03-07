@@ -2,7 +2,7 @@
 
 ## Description
 
-For this assignment I was tasked with creating a weather application that allows the user to search by city to check the weather. Using the weather API I was able to have the user enter a location they wish to see. When the user has inputted the information then they are returned with the weather for that area. With the weather information the user is able to see the temperature, wind, huimidty, and an image of that location.
+For this assignment I was tasked with creating a weather application that allows the user to search by city to check the weather. Using the weather API I was able to have the user enter a location they wish to see. When the user has inputted the information then they are returned with the weather for that area. With the weather information the user is able to see the temperature, wind, huimidty, and an image of the weather for that location.
 
 ## Usage
 
