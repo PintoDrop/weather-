@@ -22,16 +22,22 @@ body {
 h2 {
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
-  color: darkblue;
+  color: blue;
+  font-style: italic;
 }
 
 p {
-  text-align: center;
+  text-align: left;
   color:black;
   font-size: 20px;
+  font-weight: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  
 }
 
-.center {
+img {
   align-items: center;
+  justify-content: center;
+  margin:auto;
   
 }

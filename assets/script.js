@@ -4,11 +4,18 @@ $(document).ready(function () {
 
 
   function weatherFunction(searchTerm) {
-    // var url_weather = `https://api.openweathermap.org/data/2.5/forecast?lat={}&lon={}&appid=e89986efe36f78ede4b3bc4f08baa878`;
+
+    // https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+
+    //api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+
+    // Current weather:
+    var url_weather1 = `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&units=imperial&appid=e89986efe36f78ede4b3bc4f08baa878`;
+
     var url_coordinate = `http://api.openweathermap.org/geo/1.0/direct?q=${searchTerm}&appid=14432a58a22e9ecec648a23a3b345761`;
 
     // 5 day by city URL
-    var url_weather = `https://api.openweathermap.org/data/2.5/forecast?q=${searchTerm}&units=imperial&appid=e89986efe36f78ede4b3bc4f08baa878`;
+    var url_weather = `https://api.openweathermap.org/data/2.5/forecast?q=${searchTerm}&units=imperial&current&appid=e89986efe36f78ede4b3bc4f08baa878`;
 
     fetch(url_coordinate)
       .then((res) => res.json())
@@ -17,19 +24,26 @@ $(document).ready(function () {
         // let lon = res.data.city.coord.lon
         console.log(data[0].lon);
         console.log(data[0].lat);
-        // call fetch on the other api
+
+      fetch(url_weather1)
+        .then((res)=>res.json())
+        .then((data)=>{
+          console.log(data)
+          renderToday(data);
+        })
+        
+        // call fetch on the other api (5 day forecast)
         fetch(url_weather)
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
-            renderToday(data);
+            // renderToday(data);
             fiveDay(data);
-            
-
             for (var i=0; i< data.list.length; i+=5) {
               var currentDay = data.list[i]
               fiveDay(currentDay)
             }
+          
           });
       });
   }
@@ -55,16 +69,16 @@ $(document).ready(function () {
     var humidEl = $("<p>");
     var iconEl = $("<img>");
     var city = $("<h1>");
-    var iconUrl = `https://openweathermap.org/img/w/${dataObject.list[3].weather[0].icon}.png`;
+    var iconUrl = `https://openweathermap.org/img/w/${dataObject.weather[0].icon}.png`;
     iconEl.attr("src", iconUrl);
 
-    city.text(dataObject.city.name);
-    tempEl.text("Temperature: " + dataObject.list[3].main.temp + " Fahrenheit");
-    windEl.text('Wind Speed: ' + dataObject.list[3].wind.speed);
-    weatherEl.text('Weather: ' + dataObject.list[3].weather[0].description);
-    humidEl.text('Humidity: '+dataObject.list[3].main.humidity + " %")
+    city.text(dataObject.name);
 
-    dateEl.text('Date: ' +dataObject.list[3].dt_txt + "pm");
+    tempEl.text("Temperature: " + dataObject.main.temp + " Fahrenheit");
+    windEl.text('Wind Speed: ' + dataObject.wind.speed + ' MPH');
+    weatherEl.text('Weather: ' + dataObject.weather[0].description);
+    humidEl.text('Humidity: '+dataObject.main.humidity + " %")
+    dateEl.text('Date: ' + dayjs().format("MM/DD/YYYY"));
 
     // iconEl.text(dataObject.list[0].weather.icon);
 
@@ -82,38 +96,26 @@ $(document).ready(function () {
     var humidEl = $("<p>");
     var iconEl = $("<img>");
     // change index'
-    var iconUrl = `https://openweathermap.org/img/w/${dataObject.list[11].weather[0].icon}.png`;
+    var iconUrl = `https://openweathermap.org/img/w/${dataObject.list[1].weather[0].icon}.png`;
     iconEl.attr("src", iconUrl);
 
     // tempEl.text(dataObject.list[0].main.temp)
-     tempEl.text(
-       "Temperature: " + dataObject.list[11].main.temp + " Fahrenheit"
-     );
-       windEl.text("Wind Speed: " + dataObject.list[11].wind.speed);
-       weatherEl.text("Weather: " + dataObject.list[11].weather[0].description);
-       humidEl.text("Humidity: " + dataObject.list[11].main.humidity + " %");
+      tempEl.text("Temperature: " + dataObject.list[1].main.temp + " Fahrenheit");
+       windEl.text("Wind Speed: " + dataObject.list[1].wind.speed + ' MPH');
+       weatherEl.text("Weather: " + dataObject.list[1].weather[0].description);
+       humidEl.text("Humidity: " + dataObject.list[1].main.humidity + " %");
+       dateEl.text("Date: " + dataObject.list[1].dt_txt + "pm");
 
-       dateEl.text("Date: " + dataObject.list[11].dt_txt + "pm");
-
-
-
-    //      tempEl.text(
-    //        "Temperature: " + dataObject.list[19].main.temp + " Fahrenheit"
-    //      );
-    //      windEl.text("Wind Speed: " + dataObject.list[19].wind.speed);
-    //      weatherEl.text(
-    //        "Weather: " + dataObject.list[19].weather[0].description
-    //      );
-    //      humidEl.text("Humidity: " + dataObject.list[19].main.humidity + " %");
-
-    //      dateEl.text("Date: " + dataObject.list[11].dt_txt + "pm");
+      //  for (var i = 0; i < data.list.length; i += 5) {
+      //    var renderToday = data[i];
+      //    fiveDay(currentDay);
+      //  }
 
     city.text(dataObject.city.name);
     fiveDaySection.append(city, dateEl,iconEl,tempEl,windEl,weatherEl,humidEl);
   }
-
-  
 });
+
 
 // img/icon url:https://openweathermap.org/img/w/${forecast.weather[0].icon}.png
 
