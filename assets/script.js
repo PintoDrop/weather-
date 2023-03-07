@@ -1,3 +1,5 @@
+var startDt = dayjs().add(1, "day").startOf("day").unix();
+var endDt = dayjs().add(6, "day").startOf("day").unix();
 
 $(document).ready(function () {
   var today = $("#today");

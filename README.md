@@ -38,4 +38,4 @@ GIVEN a weather dashboard with form inputs
 
 ## Screen Shots
 
-![Deployed Website](./assets/Images/screenshot.JPG)
+![Deployed Website](./assets/images/screenshot.JPG)
