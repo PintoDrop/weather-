@@ -34,8 +34,8 @@ GIVEN a weather dashboard with form inputs
 
 ## Website Link
 
-[Weather Tracking]()
+[Weather Tracking](https://pintodrop.github.io/weather-/)
 
 ## Screen Shots
 
-![Deployed Website]()
+![Deployed Website](./assets/Images/screenshot.JPG)

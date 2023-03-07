@@ -97,11 +97,11 @@ $(document).ready(function () {
     iconEl.attr("src", iconUrl);
 
     // tempEl.text(dataObject.list[0].main.temp)
-    tempEl.text("Temperature: " + dataObject.list[1].main.temp + " Fahrenheit");
-    windEl.text("Wind Speed: " + dataObject.list[1].wind.speed + " MPH");
-    weatherEl.text("Weather: " + dataObject.list[1].weather[0].description);
-    humidEl.text("Humidity: " + dataObject.list[1].main.humidity + " %");
-    dateEl.text("Date: " + dataObject.list[1].dt_txt + "pm");
+    tempEl.text("Temperature: " + dataObject.list[6].main.temp + " Fahrenheit");
+    windEl.text("Wind Speed: " + dataObject.list[6].wind.speed + " MPH");
+    weatherEl.text("Weather: " + dataObject.list[6].weather[0].description);
+    humidEl.text("Humidity: " + dataObject.list[6].main.humidity + " %");
+    dateEl.text("Date: " + dataObject.list[6].dt_txt + "pm");
 
     for (var i = 0; i < dataObject.length; i++) {
       if (dataObject[i].dt >= startDt && dataObject[i].dt < endDt) {
