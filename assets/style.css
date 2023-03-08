@@ -1,6 +1,6 @@
 h1 {
   text-align: center;
-  font-family:'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   color: darkblue;
 }
 
@@ -21,25 +21,23 @@ body {
 
 h2 {
   text-align: center;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   color: blue;
   font-style: italic;
 }
 
 p {
   text-align: left;
-  color:black;
+  color: black;
   font-size: 18px;
   font-weight: 10px;
-  font-family: 'Courier New', Courier, monospace;
-  
+  font-family: "Courier New", Courier, monospace;
 }
 
 img {
   align-items: center;
   justify-content: center;
-  margin:auto;
-  
+  margin: auto;
 }
 
 .hidden {
@@ -48,6 +46,40 @@ img {
 
 li {
   font-size: 16px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-weight: 10px;
+  list-style:none;
+}
+
+.save-button {
+  align-items: center;
+}
+
+#fiveDay {
+  text-align: center;
+  justify-content: center;
+  display: inline-flex;
+}
+
+.each-day {
+  list-style: none;
+  border: 1px solid black;
+  margin: 0px 5px;
+  padding: 5px 5px;
+}
+
+footer {
+  text-align:center;
+  font-family: 'Courier New', Courier, monospace;
+  color:antiquewhite;
+  background-color:black;
+  font-weight: 200;
+  font-size:25px;
+  padding:5px;
+}
+
+#today {
+  text-align: center;
+  text-align: center;
+  justify-content: center;
 }

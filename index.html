@@ -13,30 +13,28 @@
   <h1>Track the weather near you!</h1>
   <input id="search-value" type="text" placeholder="enter a city">
   <button id="search-button">Search!</button>
-  <ul id="search-city">
-    <img class="center" src=""> 
-  </ul>
-  
+  <div id="search-city">
+
+  </div>
+
   <h2>Today's Weather</h2>
-  <section class="row" id="today"></section>
+  <section class="card" id="today"></section>
 
-  <h2>Future Forecast</h2>
-  <section class="row" id="fiveDay"></section>
+  <h2>Future 5-Day Forecast</h2>
+  <section class="card" id="fiveDay">
 
+  </section>
 
-
-
-  <!-- <footer></footer> -->
+  
+  <footer>Thanks for visiting!</footer>
 
   <script src="https://code.jquery.com/jquery-3.6.3.min.js"
     integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
-    
+
   <script src="./assets/script.js"></script>
 </body>
 
 </html>
-
-<!-- api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key} -->
