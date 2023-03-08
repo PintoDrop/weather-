@@ -2,11 +2,11 @@
 
 ## Description
 
-For this assignment I was tasked with creating a weather application that allows the user to search by city to check the weather. Using the weather API I was able to have the user enter a location they wish to see. When the user has inputted the information then they are returned with the weather for that area. With the weather information the user is able to see the temperature, wind, huimidty, and an image of the weather for that location.
+For this assignment I was tasked with creating a weather application that allows the user to search by city to check the weather. Using the weather API I was able to have the user enter a city they wish to see. When the user has inputted the information then they are returned with the weather for that area. With the weather information the user is able to see the temperature, wind, huimidty, and an image of the weather for that location. The user will also be displayed the next 5 days of weather forecast. The user will see their search history under the search bar and are able to click those cities if they wish to see them again.
 
 ## Usage
 
-This application allows the user to enter in the city they desire and check the weather for that location. After the user enters their location they are able to see the current weather for where they are. They can also see what the next five days looks like for that location.
+This application allows the user to enter in the city they desire and check the weather for that location. After the user enters their location they are able to see the current weather for where they are. They can also see what the next five days looks like for that location. The user also has the option to click on their past searches which appear under the search bar.
 
 ## License
 
@@ -38,4 +38,4 @@ GIVEN a weather dashboard with form inputs
 
 ## Screen Shots
 
-![Deployed Website](./assets/images/screenshot.JPG)
+![Deployed Website](./assets/images/screenshot1.JPG)
